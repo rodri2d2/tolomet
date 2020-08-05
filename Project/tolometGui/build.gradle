@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'org.sonarqube' // added for sonarQube
 
 android {
     compileSdkVersion 28
@@ -35,6 +36,20 @@ android {
     }
 
     lintOptions {
+    }
+}
+
+sonarqube { //added for sonarQube
+    properties {
+        property "sonar.projectName", "tolomet-Project"
+        property "sonar.projectKey", "tolomet-Project"
+        property "sonar.host.url", "http://localhost:9000"
+        property "sonar.language", "java"
+        property "sonar.sources", "src/main/java"
+        property "sonar.java.sources", "src/main/java"
+        property "sonar.sourceEncodig", "UTF-8"
+        property "sonar.login", "admin"
+        property "sonar.password", "admin"
     }
 }
 
